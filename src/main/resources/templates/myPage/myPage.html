@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<html lang="en" xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout" layout:decorate="~{layout/layout}">
+<head>
+    <meta charset="UTF-8">
+    <title>My Page</title>
+</head>
+<body>
+<div layout:fragment="content">
+    <div style="border: black solid 1px">
+        <div>
+            <label for="userId">userId :</label>
+            <span id="userId" th:text="${session.userInfo.getUserId()}"></span>
+        </div>
+        <div>
+            <label for="password">Password :</label>
+            <input type="text" id="password"/>
+        </div>
+    </div>
+</div>
+</body>
+</html>

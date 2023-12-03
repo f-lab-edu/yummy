@@ -1,0 +1,52 @@
+div.header{
+    display: flex;
+    background: fixed;
+    align-items: center;
+    width: 100%;
+}
+div#left{
+    width: 20%;
+    text-align: left;
+    margin-left: 20px;
+}
+div#center{
+    width: 60%;
+    max-height: 100%;
+    text-align: center;
+}
+div#right{
+    width: 20%;
+    text-align: right;
+    margin-right: 20px;
+}
+img#mainLogo {
+    max-width: 100%;
+    max-height: 100%;
+    height: 80px;
+    width: 80px;
+}
+input#loginPage {
+    color: green;
+    text-decoration: none;
+}
+input.profile-button {
+    background: url("../image/001-removebg-preview.png") no-repeat;
+    background-size:contain;
+    border: 0;
+    width: 30px;
+    height: 30px;
+}
+input.search-button {
+    background: url("../image/002-removebg-preview.png") no-repeat;
+    background-size:contain;
+    border: 0;
+    width: 30px;
+    height: 30px;
+}
+input.basket-button {
+    background: url("../image/003-removebg-preview.png") no-repeat;
+    background-size:contain;
+    border: 0;
+    width: 30px;
+    height: 30px;
+}

@@ -1,0 +1,8 @@
+#body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: lightyellow;
+    height: 100vh; /* 뷰포트 높이의 100% */
+    margin: 0; /* 기본 마진 제거 */
+}

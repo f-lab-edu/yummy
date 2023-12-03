@@ -1,0 +1,45 @@
+.login, #loginForm{
+    display:flex;
+    justify-content: center;
+    align-content: center;
+    position: absolute;
+    top: 5%;
+    height: 100%;
+    width: 100%;
+}
+.img{
+    display: inline-block;
+    position: absolute;
+    top: 20%;
+}
+.userId{
+    display: inline-block;
+    position: absolute;
+    top: 40%;
+    text-align: right;
+}
+.password{
+    display: inline-block;
+    position: absolute;
+    top: 45%;
+    text-align: right;
+}
+.submit{
+    position: absolute;
+    top: 53%;
+    background: url("../image/로그인버튼.png") no-repeat;
+    background-size:contain;
+    border: 0;
+    height: 45px;
+    width: 100px;
+}
+input[type=text]{
+    width: 200px;
+    height: 30px;
+    font-size: 10px;
+    border: 0;
+    border-radius: 50px;
+    background-color: gainsboro;
+    position:relative;
+    margin:10px 0;
+}
