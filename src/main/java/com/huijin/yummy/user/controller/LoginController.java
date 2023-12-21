@@ -1,7 +1,7 @@
-package com.huijin.yummy.controller;
+package com.huijin.yummy.user.controller;
 
-import com.huijin.yummy.entity.User;
-import com.huijin.yummy.service.LoginService;
+import com.huijin.yummy.user.entity.User;
+import com.huijin.yummy.user.service.LoginService;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpSession;
 import org.springframework.beans.factory.annotation.Autowired;

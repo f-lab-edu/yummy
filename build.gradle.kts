@@ -28,3 +28,9 @@ dependencies {
 tasks.withType<Test> {
 	useJUnitPlatform()
 }
+
+tasks.jar {
+	manifest {
+		attributes["Main-Class"] = "com.huijin.yummy.YummyApplication"
+	}
+}

@@ -1,4 +1,4 @@
-package com.huijin.yummy.entity;
+package com.huijin.yummy.user.entity;
 
 import jakarta.persistence.*;
 
@@ -26,11 +26,7 @@ public class User {
     @Column
     private LocalDateTime joinedDate;
 
-    public User() {
-    }
-
-    public User(long userPk, String userId, String password, String userName, String phoneNumber, String address, String userType, LocalDateTime joinedDate) {
-        this.userPk = userPk;
+    public User(String userId, String password, String userName, String phoneNumber, String address, String userType, LocalDateTime joinedDate) {
         this.userId = userId;
         this.password = password;
         this.userName = userName;
@@ -44,56 +40,28 @@ public class User {
         return userPk;
     }
 
-    public void setUserPk(long userPk) {
-        this.userPk = userPk;
-    }
-
     public String getUserId() {
         return userId;
-    }
-
-    public void setUserId(String userId) {
-        this.userId = userId;
     }
 
     public String getPassword() {
         return password;
     }
 
-    public void setPassword(String password) {
-        this.password = password;
-    }
-
     public String getUserName() {
         return userName;
-    }
-
-    public void setUserName(String userName) {
-        this.userName = userName;
     }
 
     public String getPhoneNumber() {
         return phoneNumber;
     }
 
-    public void setPhoneNumber(String phoneNumber) {
-        this.phoneNumber = phoneNumber;
-    }
-
     public String getAddress() {
         return address;
     }
 
-    public void setAddress(String address) {
-        this.address = address;
-    }
-
     public String getUserType() {
         return userType;
-    }
-
-    public void setUserType(String userType) {
-        this.userType = userType;
     }
 
     public LocalDateTime getJoinedDate() {
