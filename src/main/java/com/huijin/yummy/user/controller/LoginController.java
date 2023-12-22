@@ -25,7 +25,7 @@ public class LoginController {
 
     @GetMapping("/loginPage") // 로그인 페이지 이동
     public String loginPage () {
-        return "/login/loginPage";
+        return "login/loginPage";
     }
 
     @PostMapping("/login") // 로그인 처리
@@ -44,7 +44,7 @@ public class LoginController {
             // 로그인 실패
             model.addAttribute("error", "Invalid userId or password");
 
-            return "/login/loginPage"; // 로그인 폼을 다시 보여줌
+            return "redirect:/loginPage"; // 로그인 폼을 다시 보여줌
         }
     }
 
