@@ -1,8 +1,8 @@
-package com.huijin.yummy.service.implement;
+package com.huijin.yummy.user.service.implement;
 
-import com.huijin.yummy.entity.User;
-import com.huijin.yummy.repository.UserRepository;
-import com.huijin.yummy.service.LoginService;
+import com.huijin.yummy.user.entity.User;
+import com.huijin.yummy.user.repository.UserRepository;
+import com.huijin.yummy.user.service.LoginService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 

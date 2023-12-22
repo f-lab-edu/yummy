@@ -1,6 +1,6 @@
-package com.huijin.yummy.repository;
+package com.huijin.yummy.user.repository;
 
-import com.huijin.yummy.entity.User;
+import com.huijin.yummy.user.entity.User;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 

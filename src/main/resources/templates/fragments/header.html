@@ -11,6 +11,7 @@
       <img id="mainLogo" src="/image/main_logo.png">
     </div>
     <div id="right">
+      <input type="button" class="profile-button" onClick="location.href='/join/joinPage'" value="회원가입">
       <input th:if="${session.userInfo == null}" type="button" id="loginPage" onClick="location.href='/login/loginPage'" value="로그인">
       <input th:if="${session.userInfo != null}" type="button" id="logout" onClick="location.href='/login/logout'" value="로그아웃">
       <span th:if="${session.userInfo != null}" th:text="${session.userInfo.userName}+'님'"></span>

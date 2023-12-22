@@ -1,7 +1,7 @@
-package com.huijin.yummy.controller;
+package com.huijin.yummy.user.controller;
 
-import com.huijin.yummy.entity.User;
-import com.huijin.yummy.service.LoginService;
+import com.huijin.yummy.user.entity.User;
+import com.huijin.yummy.user.service.LoginService;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpSession;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -25,7 +25,7 @@ public class LoginController {
 
     @GetMapping("/loginPage") // 로그인 페이지 이동
     public String loginPage () {
-        return "/login/loginPage";
+        return "login/loginPage";
     }
 
     @PostMapping("/login") // 로그인 처리
@@ -44,7 +44,7 @@ public class LoginController {
             // 로그인 실패
             model.addAttribute("error", "Invalid userId or password");
 
-            return "/login/loginPage"; // 로그인 폼을 다시 보여줌
+            return "redirect:/loginPage"; // 로그인 폼을 다시 보여줌
         }
     }
 
