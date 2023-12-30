@@ -1,0 +1,9 @@
+spring:
+  profiles:
+    include: datasource, jwt, pay
+  jpa:
+    show-sql: true
+    hibernate:
+      ddl-auto: update
+    properties:
+      hibernate.format_sql: true

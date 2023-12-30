@@ -1,18 +1,37 @@
 <!DOCTYPE html>
-<html lang="en" xmlns:th="http//www.thymeleaf.org"
+<html lang="en" xmlns:th="http://www.thymeleaf.org"
       xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
       layout:decorate="~{layout/layout}">
 <head>
     <meta charset="UTF-8">
     <title>Main Page</title>
     <link rel="stylesheet" href="/css/mainPage.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <script type="text/javascript">
+        $(document).ready(function() {
+            $(".kaobtn").click(function(){
+                $.ajax({
+                    type:'get',
+                    url:'/pay/ready',
+                    data:{
+                        item_name : "14pro",
+                        quantity : "1",
+                        total_amount : "900000",
+                        tax_free_amount : "0"
+                    },
+                    success:function(res){
+                        location.href = res.next_redirect_pc_url;
+                    }
+                });
+            });
+        });
+    </script>
 </head>
 <body>
-<div layout:fragment="content">
-    <div id="body">
-
+    <div layout:fragment="content">
+        <button class="kaobtn" id="kaobtn" style="background: #fee500; color:#000; border-radius: 12px; padding: 10px 20px;">
+            카카오페이
+        </button>
     </div>
-</div>
-
 </body>
 </html>

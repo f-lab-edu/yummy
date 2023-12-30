@@ -1,0 +1,10 @@
+.signUp {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    /*margin: 0; !* 기본 마진 제거 *!*/
+}
+#signUpForm {
+    text-align: center;
+}

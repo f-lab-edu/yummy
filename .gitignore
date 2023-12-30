@@ -35,3 +35,8 @@ out/
 
 ### VS Code ###
 .vscode/
+
+### yml ###
+application-datasource.yml
+application-jwt.yml
+application-pay.yml

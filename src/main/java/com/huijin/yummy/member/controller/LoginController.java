@@ -1,7 +1,7 @@
-package com.huijin.yummy.user.controller;
+package com.huijin.yummy.member.controller;
 
-import com.huijin.yummy.user.entity.User;
-import com.huijin.yummy.user.service.LoginService;
+import com.huijin.yummy.member.entity.Member;
+import com.huijin.yummy.member.service.LoginService;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpSession;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -29,15 +29,15 @@ public class LoginController {
     }
 
     @PostMapping("/login") // 로그인 처리
-    public String login (@RequestParam(name = "userId") String userId, @RequestParam(name = "password") String password
-            , Model model,HttpServletRequest request) {
-        User user = loginService.findByUserId(userId);
+    public String login (@RequestParam(name = "email") String email, @RequestParam(name = "password") String password
+            , Model model, HttpServletRequest request) {
+        Member member = loginService.findByEmail(email);
 
-        if (user != null && user.getPassword().equals(password)) {
+        if (member != null && member.getPassword().equals(password)) {
             // 로그인 성공
             request.getSession().invalidate(); // 세션을 생성하기 전에 기존의 세션 파기
             HttpSession session = request.getSession(true); // Session이 없으면 생성
-            session.setAttribute("userInfo", user);
+            session.setAttribute("memberInfo", member);
 
             return "redirect:/mainPage"; // 로그인 후 이동할 페이지
         } else {
