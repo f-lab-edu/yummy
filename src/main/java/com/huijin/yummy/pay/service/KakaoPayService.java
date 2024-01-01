@@ -3,6 +3,7 @@ package com.huijin.yummy.pay.service;
 import com.huijin.yummy.pay.dto.KakaoPayApproveDTO;
 import com.huijin.yummy.pay.dto.KakaoPayReadyDTO;
 
+import jakarta.servlet.http.HttpSession;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.http.HttpEntity;
 import org.springframework.http.HttpHeaders;
@@ -36,7 +37,7 @@ private String adminKey;
         payParams.add("quantity", params.get("quantity"));
         payParams.add("total_amount", params.get("total_amount"));
         payParams.add("tax_free_amount", params.get("tax_free_amount"));
-        payParams.add("approval_url", "http://localhost:8080/mainPage"); // 결제승인시 넘어갈 url
+        payParams.add("approval_url", "http://localhost:8080/pay/success"); // 결제승인시 넘어갈 url
         payParams.add("cancel_url", "http://localhost:8080/pay/cancel"); // 결제취소시 넘어갈 url
         payParams.add("fail_url", "http://localhost:8080/pay/fail"); // 결제 실패시 넘어갈 url
 
@@ -55,9 +56,9 @@ private String adminKey;
         return res;
     }
 
-    public KakaoPayApproveDTO kakaoPayApprove(String pgToken){
+    public KakaoPayApproveDTO kakaoPayApprove(String pgToken, String tid){
         HttpHeaders headers = new HttpHeaders();
-        headers.set("Authorization", "KakaoAK {adminkey}"); //발급받은 adminkey
+        headers.set("Authorization", "KakaoAK "+adminKey); //발급받은 adminkey
         headers.set("Content-type", "application/x-www-form-urlencoded;charset=utf-8");
 
         MultiValueMap<String, Object> payParams = new LinkedMultiValueMap<String, Object>();
@@ -66,23 +67,23 @@ private String adminKey;
          * 결제번호는 결제준비 api와 일치 하여야 한다.
          * tid 불러오는 로직 추가
          * */
-
-        String tid = "";
+        System.err.println("KakaoPayReadyDTO tid : ");
+        //String tid = "1";
         payParams.add("cid", "TC0ONETIME");
         payParams.add("tid", tid);
         payParams.add("partner_order_id", "KAO20230318001");
         payParams.add("partner_user_id", "kakaopayTest");
         payParams.add("pg_token", pgToken);
-
+        System.err.println("1");
         //카카오페이 결제요청 api 요청
         HttpEntity<Map> request = new HttpEntity<Map>(payParams, headers);
-
+        System.err.println("2");
         RestTemplate template = new RestTemplate();
         String url = "https://kapi.kakao.com/v1/payment/approve";
-
+        System.err.println("3");
         //요청결과
         KakaoPayApproveDTO res = template.postForObject(url, request, KakaoPayApproveDTO.class);
-
+        System.err.println("4");
         return res;
     }
 }

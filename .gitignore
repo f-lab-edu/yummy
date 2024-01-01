@@ -37,6 +37,7 @@ out/
 .vscode/
 
 ### yml ###
-application-datasource.yml
-application-jwt.yml
-application-pay.yml
+#application-datasource.yml
+#application-jwt.yml
+#application-pay.yml
+*.yml

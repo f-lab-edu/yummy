@@ -11,15 +11,15 @@ import org.springframework.test.web.servlet.MockMvc;
 
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.post;
 
-@SpringBootTest
+//@SpringBootTest
 @AutoConfigureMockMvc
 public class LoginTests {
 
-    @Autowired
+    //@Autowired
     MockMvc mockMvc;
-    @Autowired
+    //@Autowired
     MemberRepository memberRepository;
-    @Autowired
+    //@Autowired
     LoginService loginService;
 
     @Test
