@@ -1,13 +1,12 @@
 package com.huijin.yummy.member.entity;
 
-import groovy.transform.builder.Builder;
+import com.huijin.yummy.pay.entity.Payment;
 import jakarta.persistence.*;
 import org.hibernate.annotations.CreationTimestamp;
 
 import java.time.LocalDateTime;
 
 @Entity
-@Builder
 @Table(name = "member")
 public class Member {
 
@@ -105,5 +104,61 @@ public class Member {
 
     public void setJoinedDate(LocalDateTime joinedDate) {
         this.joinedDate = joinedDate;
+    }
+
+    // ✨ 빌더 패턴을 위한 빌더 클래스!
+    static public class Builder {
+        private String email;
+        private String password;
+        private String name;
+        private String phoneNumber;
+        private String address;
+        private String memberType;
+
+        public Builder() {
+        }
+
+        public Builder(Member member) {
+            this.email = email;
+            this.password = password;
+            this.name = name;
+            this.phoneNumber = phoneNumber;
+            this.address = address;
+            this.memberType = memberType;
+        }
+
+        public Member.Builder email(String email) {
+            this.email = email;
+            return this;
+        }
+
+        public Member.Builder password(String password) {
+            this.password = password;
+            return this;
+        }
+
+        public Member.Builder name(String name) {
+            this.name = name;
+            return this;
+        }
+
+        public Member.Builder phoneNumber(String phoneNumber) {
+            this.phoneNumber = phoneNumber;
+            return this;
+        }
+
+        public Member.Builder address(String address) {
+            this.address = address;
+            return this;
+        }
+
+        public Member.Builder memberType(String memberType) {
+            this.memberType = memberType;
+            return this;
+        }
+
+        public Member build() {
+            return new Member(email, password, name, phoneNumber, address, memberType);
+        }
     }
 }

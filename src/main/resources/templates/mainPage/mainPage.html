@@ -14,13 +14,14 @@
                     type:'get',
                     url:'/pay/ready',
                     data:{
-                        item_name : "14pro",
+                        item_name : "아이폰14pro",
+                        item_code : "10001",
                         quantity : "1",
                         total_amount : "900000",
                         tax_free_amount : "0"
                     },
-                    success:function(res){
-                        location.href = res.next_redirect_pc_url;
+                    success:function(response){
+                        location.href = response.next_redirect_pc_url;
                     }
                 });
             });

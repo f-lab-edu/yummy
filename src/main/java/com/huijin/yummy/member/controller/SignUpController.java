@@ -20,12 +20,12 @@ public class SignUpController {
     }
 
     @GetMapping("/signUpPage")
-    public String joinPage () {
+    public String signUpPage () {
         return "signUp/signUpPage";
     }
 
-    @PostMapping("/signUp") // 로그인 처리
-    public String login (Member member) {
+    @PostMapping("/signUp")
+    public String signUp (Member member) {
         signUpService.signUp(member);
         return "redirect:/mainPage";
     }

@@ -25,15 +25,17 @@ public class KakaoPayController {
     // 결제 버튼 클릭 시 호출
     @GetMapping("/pay/ready")
     public @ResponseBody KakaoPayReadyDTO kakaoPay(@RequestParam Map<String, Object> params, HttpSession session){ //세션 삭제 예정
-        KakaoPayReadyDTO res = payService.kakaoPay(params);
-        session.setAttribute("tid", res.getTid()); //세션 삭제 예정
-        return res;
+        KakaoPayReadyDTO response = payService.kakaoPayReady(params);
+        session.setAttribute("tid", response.getTid()); //세션 삭제 예정
+
+        return response;
     }
 
+    // 결제 성공
     @GetMapping("/pay/success")
     public String Success(@RequestParam("pg_token") String pgToken, HttpSession session) { //세션 삭제 예정
         String tid = (String) session.getAttribute("tid"); //세션 삭제 예정
-        KakaoPayApproveDTO res = payService.kakaoPayApprove(pgToken, tid);
+        KakaoPayApproveDTO response = payService.kakaoPayApprove(pgToken, tid);
         /*
          * 요청 결과에 대해서 데이터 베이스에 저장 또는 업데이트 할 로직 추가
          * */
