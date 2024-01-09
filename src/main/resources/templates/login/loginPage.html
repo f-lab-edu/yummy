@@ -1,25 +1,29 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" xmlns:th="http://www.thymeleaf.org"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      layout:decorate="~{layout/layout}">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>main page</title>
+    <title>Login Page</title>
     <link rel="stylesheet" href="/css/loginPage.css">
 </head>
 <body>
-<section class="login">
-    <div class="img">
-        <img src="/image/로그인_로고.png" height="170px" width="250px"><br/>
+    <div layout:fragment="content">
+        <section class="login">
+            <form id="loginForm" action="/login/login" method="post">
+                <div class="img">
+                    <img alt="login logo" src="/image/로그인_로고.png" height="170px" width="250px"><br/>
+                </div>
+                <div class="email" >
+                    <input type="text" id="email" name="email" placeholder="  이메일">
+                </div>
+                <div class="password" >
+                    <input type="password" id="password" name="password" placeholder="  비밀번호">
+                </div>
+                <button type="submit" class="submit"></button>
+            </form>
+        </section>
     </div>
-    <form id="loginForm" action="/login/login" method="post">
-        <div class="userId" >
-            <input type="text" id="userId" name="userId" placeholder="  아이디">
-        </div>
-        <div class="password" >
-            <input type="text" id="password" name="password" placeholder="  비밀번호">
-        </div>
-        <button type="submit" class="submit"></button>
-    </form>
-</section>
 </body>
 </html>

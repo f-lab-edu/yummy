@@ -1,6 +1,7 @@
 <!DOCTYPE html>
-<html xmlns:th="http://www.thymeleaf.org">
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
 <head>
+  <title>header</title>
 </head>
 <body>
 <div th:fragment="header">
@@ -8,13 +9,13 @@
     <div id="left">
     </div>
     <div id="center">
-      <img id="mainLogo" src="/image/main_logo.png">
+      <img  alt="main logo" id="mainLogo" src="/image/main_logo.png">
     </div>
     <div id="right">
-      <input type="button" class="profile-button" onClick="location.href='/join/joinPage'" value="회원가입">
-      <input th:if="${session.userInfo == null}" type="button" id="loginPage" onClick="location.href='/login/loginPage'" value="로그인">
-      <input th:if="${session.userInfo != null}" type="button" id="logout" onClick="location.href='/login/logout'" value="로그아웃">
-      <span th:if="${session.userInfo != null}" th:text="${session.userInfo.userName}+'님'"></span>
+      <input type="button" class="profile-button" onClick="location.href='/signUp/signUpPage'" value="회원가입">
+      <input th:if="${session.memberInfo == null}" type="button" id="loginPage" onClick="location.href='/login/loginPage'" value="로그인">
+      <input th:if="${session.memberInfo != null}" type="button" id="logout" onClick="location.href='/login/logout'" value="로그아웃">
+      <span th:if="${session.memberInfo != null}" th:text="${session.memberInfo.name}+'님'"></span>
       <input type="button" class="profile-button" onClick="location.href='/myPage/myPage'">
       <input type="button" class="search-button" onclick="alert('검색창')">
       <input type="button" class="basket-button" onclick="alert('장바구니')">

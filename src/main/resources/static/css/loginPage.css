@@ -1,18 +1,17 @@
-.login, #loginForm{
+#loginForm{
     display:flex;
     justify-content: center;
     align-content: center;
     position: absolute;
-    top: 5%;
     height: 100%;
     width: 100%;
 }
 .img{
     display: inline-block;
     position: absolute;
-    top: 20%;
+    top: 15%;
 }
-.userId{
+.email{
     display: inline-block;
     position: absolute;
     top: 40%;
@@ -33,7 +32,7 @@
     height: 45px;
     width: 100px;
 }
-input[type=text]{
+input#email,#password{
     width: 200px;
     height: 30px;
     font-size: 10px;
