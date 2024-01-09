@@ -37,9 +37,9 @@ dependencies {
 	runtimeOnly("com.mysql:mysql-connector-j")
 
 	/*JWT 의존성*/
-	implementation("io.jsonwebtoken:jjwt-api:0.11.2")
-	runtimeOnly("io.jsonwebtoken:jjwt-impl:0.11.2")
-	runtimeOnly("io.jsonwebtoken:jjwt-jackson:0.11.2")
+	implementation("io.jsonwebtoken:jjwt-api:0.12.3")
+	runtimeOnly("io.jsonwebtoken:jjwt-impl:0.12.3")
+	runtimeOnly("io.jsonwebtoken:jjwt-orgjson:0.12.3")
 }
 
 tasks.withType<Test> {

@@ -18,4 +18,9 @@ public class LoginService {
     public Member findByEmail(String email) {
         return memberRepository.findByEmail(email);
     }
+
+    public boolean login(String email, String password) {
+        Member member = memberRepository.findByEmail(email);
+        return member != null && member.getPassword().equals(password);
+    }
 }

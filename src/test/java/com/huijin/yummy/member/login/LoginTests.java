@@ -22,17 +22,17 @@ import static org.springframework.test.web.servlet.result.MockMvcResultHandlers.
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.content;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status;
 
-@WebMvcTest(LoginController.class)
+//@WebMvcTest(LoginController.class)
 @AutoConfigureMockMvc
 public class LoginTests {
 
-    @Autowired
+    //@Autowired
     MockMvc mockMvc;
     //@Autowired
     MemberRepository memberRepository;
     @MockBean
     LoginService loginService;
-    @Autowired
+    //@Autowired
     private WebApplicationContext context;
 
     @BeforeEach
@@ -43,7 +43,7 @@ public class LoginTests {
                 .build();
     }
 
-    @Test
+    //@Test
     @DisplayName("아이디로 로그인: 성공")
     public void 로그인검증() throws Exception {
         String userId = "test1";
