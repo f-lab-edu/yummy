@@ -4,9 +4,9 @@ name: CD with Gradle
  # 여기서는 main 브랜치에 코드가 push 되거나 pull_request되었을 때 실행할 것을 말하고 있습니다.
  on:
    push:
-     branches: [ "develop" ]
+     branches: [ "main" ]
    pull_request:
-     branches: [ "develop" ]
+     branches: [ "main" ]
 
  # 코드의 내용을 이 파일을 실행하여 action을 수행하는 주체(Github Actions에서 사용하는 VM)가 읽을 수 있도록 허용합니다.
  permissions:
