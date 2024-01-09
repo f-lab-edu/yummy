@@ -58,8 +58,9 @@ name: CD with Gradle
      id: deploy
      with:
        host: ${{ secrets.HOST }}
-       username: ubuntu
+       username: ${{ secrets.SSH_USERNAME }}
        key: ${{ secrets.KEY }}
+       port: ${{ secrets.PORT }}
        envs: GITHUB_SHA
      script: |
        sudo docker rm -f $(docker ps -qa)
