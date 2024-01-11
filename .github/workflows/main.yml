@@ -59,7 +59,7 @@ jobs:
        with:
          host: ${{ secrets.HOST }}
          username: ${{ secrets.SSH_USERNAME }}
-         key: ${{ secrets.KEY }}
+         password: ${{ secrets.KEY }}
          port: ${{ secrets.PORT }}
          envs: GITHUB_SHA
          script: |
