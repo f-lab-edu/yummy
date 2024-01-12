@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      layout:decorate="~{layout/layout}">
+<head>
+    <meta charset="UTF-8">
+    <title>Store Detail</title>
+    <link rel="stylesheet" href="/css/storeDetailPage.css">
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <script type="text/javascript">
+        $(document).ready(function() {
+            $(".order-button").click(function(){
+                $.ajax({
+                    type:'get',
+                    url:'/pay/ready',
+                    data:{
+                        item_name : "콤비네이션 피자",
+                        item_code : "10001",
+                        quantity : "1",
+                        total_amount : "15000",
+                        tax_free_amount : "0"
+                    },
+                    success:function(response){
+                        location.href = response.next_redirect_pc_url;
+                    }
+                });
+            });
+        });
+    </script>
+</head>
+<body>
+    <div layout:fragment="content">
+        <div class="store_detail">
+            <h1>상점 상세화면</h1>
+            <ul>
+                <li>
+                    <strong>상점 이름:</strong> 피자 맛집
+                </li>
+                <li>
+                    <strong>상점 설명:</strong> 이 상점은 맛있는 피자를 판매합니다.
+                </li>
+            </ul>
+
+            <div class="food-list">
+                <h2>음식 목록</h2>
+                <div class="food-item">
+                    <span>콤비네이션 피자</span>
+                    <button class="order-button">주문하기</button>
+                </div>
+                <div class="food-item">
+                    <span>페퍼로니 피자</span>
+                    <button class="order-button">주문하기</button>
+                </div>
+                <!-- 필요한 만큼 음식 아이템을 추가할 수 있습니다. -->
+            </div>
+        </div>
+    </div>
+</body>
+</html>

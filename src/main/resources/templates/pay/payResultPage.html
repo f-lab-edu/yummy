@@ -4,12 +4,16 @@
       layout:decorate="~{layout/layout}">
 <head>
     <meta charset="UTF-8">
-    <title>Main Page</title>
-    <link rel="stylesheet" href="/css/mainPage.css">
+    <title>payResult</title>
+    <link rel="stylesheet" href="/css/payResultPage.css">
 </head>
 <body>
     <div layout:fragment="content" class="content">
-        <input type="button" class="pizza-button" onclick="location.href='/store/storeListPage'">
+        <div class="payResult">
+            <h1 th:text="${payResult}">결제 결과</h1>
+            <br>
+            <a href="/mainPage">메인페이지</a>
+        </div>
     </div>
 </body>
 </html>

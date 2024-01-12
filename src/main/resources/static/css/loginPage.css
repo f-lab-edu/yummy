@@ -26,7 +26,7 @@
 .submit{
     position: absolute;
     top: 53%;
-    background: url("../image/로그인버튼.png") no-repeat;
+    background: url("../image/login_button-icon.png") no-repeat;
     background-size:contain;
     border: 0;
     height: 45px;
@@ -41,4 +41,11 @@ input#email,#password{
     background-color: gainsboro;
     position:relative;
     margin:10px 0;
+}
+input.signUp-button {
+    background: url("../image/sign_up-icon.png") no-repeat;
+    background-size:contain;
+    border: 0;
+    width: 30px;
+    height: 30px;
 }

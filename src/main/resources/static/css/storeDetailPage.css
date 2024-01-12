@@ -1,0 +1,38 @@
+.store_detail {
+    font-family: Arial, sans-serif;
+    margin: 20px;
+}
+h1 {
+    text-align: center;
+}
+ul {
+    list-style-type: none;
+    padding: 0;
+}
+li {
+    margin-bottom: 10px;
+    border: 1px solid #ccc;
+    padding: 10px;
+    border-radius: 5px;
+}
+.food-list {
+    margin-top: 20px;
+}
+.food-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 10px;
+    border: 1px solid #ccc;
+    padding: 10px;
+    border-radius: 5px;
+}
+.order-button {
+    background-color: #fee500;
+    color: #000;
+    padding: 10px 20px;
+    /*border: none;*/
+    border-radius: 12px;
+    cursor: pointer;
+    font-size: 15px;
+}

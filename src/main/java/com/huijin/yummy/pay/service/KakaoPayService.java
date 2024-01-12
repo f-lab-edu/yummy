@@ -4,6 +4,9 @@ import com.huijin.yummy.pay.dto.KakaoPayApproveDTO;
 import com.huijin.yummy.pay.dto.KakaoPayReadyDTO;
 
 import com.huijin.yummy.pay.entity.Payment;
+import com.huijin.yummy.pay.repository.PaymentRepository;
+import jakarta.persistence.EntityManager;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.http.HttpEntity;
 import org.springframework.http.HttpHeaders;
@@ -17,8 +20,17 @@ import java.util.Map;
 @Service
 public class KakaoPayService {
 
-@Value("${pay.admin-key}")
-private String adminKey;
+    private final PaymentRepository paymentRepository;
+    private final EntityManager entityManager;
+
+    @Value("${pay.admin-key}")
+    private String adminKey;
+
+    @Autowired
+    public KakaoPayService(PaymentRepository paymentRepository, EntityManager entityManager) {
+        this.paymentRepository = paymentRepository;
+        this.entityManager = entityManager;
+    }
 
     /**
      * 결제 준비
@@ -55,13 +67,26 @@ private String adminKey;
 
         //요청 결과
         KakaoPayReadyDTO response = template.postForObject(url, request, KakaoPayReadyDTO.class);
-        System.err.println("KakaoPayReadyDTO 요청결과 = " + response);
+
         /*
          * 요청결과에서 응답받은 tid 값을 데이터베이스에 저장하는 로직 추가
-         * 주문번호랑-tid랑 연결하여 결제이력테이블로 관리?
          */
+        //TODO 하드코딩 수정할 것
         Payment payment = new Payment.Builder()
-                .tid(response.getTid()).build();
+                        .memberId(1L)
+                        .storeId(3L)
+                        .productId(4L)
+                        .tid(response.getTid())
+                        .payerName("test")
+                        .productName("콤비네이션 피자")
+                        .quantity(1)
+                        .paymentAmount(15000)
+                        .paymentMethodType("card")
+                        .pgCompany("KakaoPay")
+                        .paymentStatus("요청")
+                        .build();
+
+        paymentRepository.save(payment);
 
         return response;
     }
@@ -96,8 +121,21 @@ private String adminKey;
 
         //요청 결과
         KakaoPayApproveDTO response = template.postForObject(url, request, KakaoPayApproveDTO.class);
-        System.err.println("KakaoPayApproveDTO 요청결과 = " + response);
 
         return response;
+    }
+
+    //요청 결과에 따라 결제 상태 업데이트 ex)요청, 취소, 실패
+    public void updatePaymentStatus(String tid, String status) {
+        Payment payment = paymentRepository.findByTid(tid);
+        /*
+        find() 메소드는 주로 엔터티의 기본 키(primary key)를 사용하여 엔터티를 찾는 데에 사용된다.
+        기본 키는 엔터티를 고유하게 식별하는 데 사용되는 값이어야함.
+        */
+//        Payment payment = entityManager.find(Payment.class, tid);
+
+        //결제 상태 업데이트
+        payment.setPaymentStatus(status);
+        paymentRepository.save(payment);
     }
 }

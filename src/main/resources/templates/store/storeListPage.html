@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      layout:decorate="~{layout/layout}">
+<head>
+  <meta charset="UTF-8">
+  <title>Store List</title>
+  <link rel="stylesheet" href="/css/storeListPage.css">
+</head>
+<body>
+  <div layout:fragment="content">
+    <div class="store_list">
+      <h1>상점 목록</h1>
+      <ul>
+        <li onclick="location.href='/store/storeDetailPage'">피자 맛집</li>
+        <li>상점 2</li>
+        <li>상점 3</li>
+      </ul>
+    </div>
+  </div>
+</body>
+</html>
