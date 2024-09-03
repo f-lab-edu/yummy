@@ -1,51 +1,51 @@
-#loginForm{
-    display:flex;
+.login {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
     justify-content: center;
-    align-content: center;
-    position: absolute;
     height: 100%;
-    width: 100%;
 }
-.img{
-    display: inline-block;
-    position: absolute;
-    top: 15%;
+#loginForm {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
 }
-.email{
-    display: inline-block;
-    position: absolute;
-    top: 40%;
-    text-align: right;
+.img img {
+    width: 250px;
+    height: 170px;
 }
-.password{
-    display: inline-block;
-    position: absolute;
-    top: 45%;
-    text-align: right;
+.inputBox {
+    margin-top: 40px;
 }
-.submit{
-    position: absolute;
-    top: 53%;
-    background: url("../image/login_button-icon.png") no-repeat;
-    background-size:contain;
-    border: 0;
-    height: 45px;
-    width: 100px;
+.email,
+.password {
+    display: flex;
+    justify-content: flex-end;
+    margin: 10px 0;
 }
-input#email,#password{
+.email input,
+.password input {
     width: 200px;
     height: 30px;
-    font-size: 10px;
+    font-size: 14px;
     border: 0;
     border-radius: 50px;
     background-color: gainsboro;
-    position:relative;
-    margin:10px 0;
 }
-input.signUp-button {
+.submit {
+    background: url("../image/login_button-icon.png") no-repeat;
+    background-size: contain;
+    border: 0;
+    height: 45px;
+    width: 100px;
+    margin-top: 40px;
+}
+.signUp-button {
     background: url("../image/sign_up-icon.png") no-repeat;
-    background-size:contain;
+    background-size: contain;
     border: 0;
     width: 30px;
     height: 30px;
+    margin-top: 20px;
 }

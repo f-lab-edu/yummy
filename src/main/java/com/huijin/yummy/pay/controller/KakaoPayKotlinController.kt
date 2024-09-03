@@ -28,11 +28,12 @@ class KakaoPayKotlinController(private val kakaoPayService: KakaoPayService) {
     @GetMapping("/pay/success")
     fun paySuccess(@RequestParam("pg_token") pgToken: String?, session: HttpSession, model: Model): String? { //세션 삭제 예정
         val tid = session.getAttribute("tid") as String //세션 삭제 예정
-        val response: KakaoPayApproveDTO = kakaoPayService.kakaoPayApprove(pgToken, tid)
+        //val response: KakaoPayApproveDTO = kakaoPayService.kakaoPayApprove(pgToken, tid)
 
         //요청 결과에 대해서 데이터 베이스에 저장 또는 업데이트한다
         kakaoPayService.updatePaymentStatus(tid, "성공")
         model.addAttribute("payResult", "결제 성공")
+
         return "pay/payResultPage"
     }
 
@@ -41,9 +42,9 @@ class KakaoPayKotlinController(private val kakaoPayService: KakaoPayService) {
     fun payCancel(session: HttpSession, model: Model): String? { //세션 삭제 예정
         val tid = session.getAttribute("tid") as String //세션 삭제 예정
 
-        //요청 결과에 대해서 데이터 베이스에 저장 또는 업데이트한다
         kakaoPayService.updatePaymentStatus(tid, "취소")
         model.addAttribute("payResult", "결제 취소")
+
         return "pay/payResultPage"
     }
 
@@ -52,9 +53,9 @@ class KakaoPayKotlinController(private val kakaoPayService: KakaoPayService) {
     fun payFail(session: HttpSession, model: Model): String? { //세션 삭제 예정
         val tid = session.getAttribute("tid") as String //세션 삭제 예정
 
-        //요청 결과에 대해서 데이터 베이스에 저장 또는 업데이트한다
         kakaoPayService.updatePaymentStatus(tid, "실패")
         model.addAttribute("payResult", "결제 실패")
+
         return "/pay/payResultPage"
     }
 }
